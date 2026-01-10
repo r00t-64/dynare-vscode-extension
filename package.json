@@ -1,0 +1,41 @@
+{
+  "name": "dynare-runner",
+  "version": "0.0.1",
+  "publisher": "root64",
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onCommand:dynare.run"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "dynare.run",
+        "title": "Run Dynare",
+        "icon": {
+          "light": "media/icon-light.png",
+          "dark": "media/icon-dark.png"
+        }
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "dynare.run",
+          "when": "resourceExtname == .mod",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.0",
+    "@types/vscode": "^1.77.0",
+    "typescript": "^4.0.0"
+  },
+  "engines": {
+    "vscode": "^1.77.0"
+  }
+}
