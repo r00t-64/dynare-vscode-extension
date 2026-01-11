@@ -2,21 +2,18 @@
   "name": "dynare-runner",
   "version": "0.0.1",
   "publisher": "root64",
-  "main": "./src/extension.js",
+  "main": "./out/extension.js",
   "activationEvents": [
     "onCommand:dynare.run"
   ],
   "contributes": {
     "commands": [
-      {
-        "command": "dynare.run",
-        "title": "Run Dynare",
-        "icon": {
-          "light": "media/icon-light.png",
-          "dark": "media/icon-dark.png"
+        {
+            "command": "dynare.run",
+            "title": "Run Dynare",
+            "icon": "$(play)"
         }
-      }
-    ],
+        ],
     "menus": {
       "editor/title": [
         {
@@ -25,7 +22,28 @@
           "group": "navigation"
         }
       ]
-    }
+    },
+    "configuration": {
+      "title": "Dynare",
+      "properties": {
+        "dynare.path": {
+          "type": "string",
+          "default": "dynare",
+          "description": "Path to dynare executable"
+        }
+      }
+    },
+    "icon": {
+      "iconDefinitions": {
+        "dynare-icon": {
+          "light": "media/icon-light.png",
+          "dark": "media/icon-dark.png"
+        }
+      },
+      "fileExtensions": {
+        "mod": "dynare-icon"
+      }
+  }
   },
   "scripts": {
     "vscode:prepublish": "tsc -p ./"
@@ -37,5 +55,9 @@
   },
   "engines": {
     "vscode": "^1.77.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/r00t-64/dynare-vscode-extension.git"
   }
 }
